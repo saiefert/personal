@@ -1,6 +1,6 @@
 package study;
 
-class Funcionario {
+class FuncionarioTeste {
     String nome;
     String cpf;
     int idade;
@@ -27,13 +27,25 @@ class Funcionario {
     }
 }
 
+class EmpresaTeste {
+    FuncionarioTeste[] empregados;
+    String nome;
+    String cnpj;
+    int livre = 0;
+
+    void adicionar(FuncionarioTeste i){
+         this.empregados[this.livre] = i;
+         this.livre++;
+    }
+}
+
+
 public class fodao {
 
     public static void main(String[] args) {
 
 
-
-        Funcionario josmar = new Funcionario();
+        FuncionarioTeste josmar = new FuncionarioTeste();
         josmar.nome = "Josmar Saiefert";
         josmar.cpf = "03954561182";
         josmar.idade = 25;
@@ -43,7 +55,7 @@ public class fodao {
 
         josmar.mostrar();
 
-        Funcionario dionizia = new Funcionario();
+        FuncionarioTeste dionizia = new FuncionarioTeste();
         dionizia.nome = "Dionizia Romeiro";
         dionizia.cpf = "9999999";
         dionizia.idade = 37;
