@@ -8,7 +8,7 @@ class Funcionario {
     int idade;
     double salario;
 
-    void cpf(int um, int dois, int tres, int quatro){
+    void cpf(int um, int dois, int tres, int quatro) {
         this.cpf1 = um;
         this.cpf2 = dois;
         this.cpf3 = tres;
@@ -17,34 +17,60 @@ class Funcionario {
 
     void imprime() {
         System.out.println("Nome: " + this.nome);
-        System.out.println("CPF: " + this.cpf1 + "." + this.cpf2 + "." + this.cpf3 + "-" + this.cpf4);
-        System.out.println("Rg: " + this.rg);
-        System.out.println("Cargo: " + this.cargo);
-        System.out.println("Idade: " + this.idade);
-        System.out.println("Salário: " + this.salario);
+        if (this.cpf1 == 0 && this.cpf2 == 0 && this.cpf2 == 0 && this.cpf4 == 0) {
+            System.out.println("Cpf não informado");
+        } else {
+            System.out.println("CPF: " + this.cpf1 + "." + this.cpf2 + "." + this.cpf3 + "-" + this.cpf4);
+        }
+        if (this.rg == 0) {
+            System.out.println("Rg não informado");
+        } else {
+            System.out.println("Rg: " + this.rg);
+        }
+        if (this.cargo == null) {
+            System.out.println("Cargo não informado");
+        } else {
+            System.out.println("Cargo: " + this.cargo);
+        }
+        if (this.idade == 0) {
+            System.out.println("Idade não informada");
+        } else {
+            System.out.println("Idade: " + this.idade);
+        }
+        if (this.salario == 0) {
+            System.out.println("Salário não informado");
+        } else {
+
+            System.out.println("Salário: " + this.salario);
+        }
+        System.out.println("\n");
     }
-
-
 }
 
-class Empresa{
-    Funcionario[] colaboradores;
+class Empresa {
+    Funcionario[] empregado;
     String nome;
     String cnpj;
-    int vazio = 0;
+    int init = 0;
 
-    void adicionar(Funcionario f){
-        this.colaboradores[this.vazio] = f;
-        this.vazio++;
+    void adicionaEmpregado(Funcionario f) {
+        this.empregado[this.init] = f;
+        this.init++;
     }
 
-    void mostraEmpregados(){
-        for(int i = 0; i < this.colaboradores.length; i++){
+    void mostraEmpregados() {
+        for (int i = 0; i < empregado.length; i++) {
+            if (empregado[i] == null) continue;
+            System.out.print("Empregado na posição " + i + ": ");
+            System.out.println(empregado[i].salario);
+        }
+    }
 
-            System.out.print("\nFuncionario da Posição: " + i);
-            System.out.print("\nR$:  " + this.colaboradores[i].salario);
-            if(this.colaboradores == null) continue;
-
+    void mostraTodasAsInformacoes() {
+        for (int i = 0; i < this.init; i++) {
+            if(empregado[i] == null)continue;
+            System.out.println("Empregado na posição " + i + ": ");
+            this.empregado[i].imprime();
         }
     }
 }
@@ -52,8 +78,9 @@ class Empresa{
 public class TestaEmpresa {
     public static void main(String[] args) {
 
-        Empresa google = new Empresa();
-        google.colaboradores = new Funcionario[5];
+        Empresa empresa = new Empresa();
+        empresa.empregado = new Funcionario[10];
+
 
         Funcionario f1 = new Funcionario();
         f1.nome = "Josmar";
@@ -61,20 +88,20 @@ public class TestaEmpresa {
         f1.idade = 25;
         f1.rg = 123456;
         f1.cargo = "Auxiliar de TI";
-        f1.cpf(39,545,611,82);
-        google.adicionar(f1);
-        google.colaboradores[0].imprime();
+        f1.cpf(39, 545, 611, 82);
+        empresa.adicionaEmpregado(f1);
 
         Funcionario f2 = new Funcionario();
         f2.nome = "Saiefert";
         f2.salario = 2300.00;
-        google.adicionar(f2);
-        google.colaboradores[1].imprime();
+        empresa.adicionaEmpregado(f2);
+
+        empresa.mostraTodasAsInformacoes();
 
 
-        google.mostraEmpregados();
     }
 }
+
 
 
 
