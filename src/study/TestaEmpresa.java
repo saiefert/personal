@@ -1,12 +1,15 @@
 package study;
 
-class Funcionario {
-    String nome;
-    int cpf1, cpf2, cpf3, cpf4;
-    long rg;
-    String cargo;
-    int idade;
-    double salario;
+import javax.xml.crypto.Data;
+
+public class Funcionario {
+    private String nome;
+    private int cpf1, cpf2, cpf3, cpf4;
+    private long rg;
+    private String cargo;
+    private int idade;
+    private Data dataEntrada;
+    private double salario;
 
     void cpf(int um, int dois, int tres, int quatro) {
         this.cpf1 = um;
@@ -45,6 +48,14 @@ class Funcionario {
         }
         System.out.println("\n");
     }
+
+    public double getSalario() {
+        return this.salario;
+    }
+    public void setSalario(){
+        this.salario = salario;
+    }
+
 }
 
 class Empresa {
@@ -68,7 +79,7 @@ class Empresa {
 
     void mostraTodasAsInformacoes() {
         for (int i = 0; i < this.init; i++) {
-            if(empregado[i] == null)continue;
+            if (empregado[i] == null) continue;
             System.out.println("Empregado na posição " + i + ": ");
             this.empregado[i].imprime();
         }
@@ -84,7 +95,7 @@ public class TestaEmpresa {
 
         Funcionario f1 = new Funcionario();
         f1.nome = "Josmar";
-        f1.salario = 1600.00;
+        f1.setSalario() = 1600.00;
         f1.idade = 25;
         f1.rg = 123456;
         f1.cargo = "Auxiliar de TI";
