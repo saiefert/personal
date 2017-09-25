@@ -1,4 +1,4 @@
-package study;
+package Um;
 
 public class Funcionario {
     private int codigo;

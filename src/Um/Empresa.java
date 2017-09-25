@@ -1,4 +1,4 @@
-package study;
+package Um;
 
 public class Empresa {
     Funcionario[] empregados;
